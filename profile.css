@@ -1,0 +1,104 @@
+/* Profile Page Styling */
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  color: #111;
+}
+
+.profile-header {
+  text-align: center;
+  padding: 30px 20px;
+}
+
+.profile-header img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.profile-header h2 {
+  font-size: 1.6rem;
+  margin: 5px 0;
+}
+
+.profile-header p {
+  color: #555;
+  font-size: 0.95rem;
+}
+
+.tabs {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.tabs button {
+  padding: 10px 20px;
+  margin: 0 6px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+  border-radius: 20px;
+  font-size: 1rem;
+  transition: background 0.3s;
+}
+
+.tabs button.active {
+  background: #e60023;
+  color: #fff;
+}
+
+.pin-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 15px;
+  padding: 0 20px 40px;
+}
+
+.pin-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  cursor: pointer;
+  background: #f9f9f9;
+}
+
+.pin-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.3s ease;
+}
+
+.pin-card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+  padding: 8px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  font-size: 0.9rem;
+}
+
+.pin-card:hover .overlay {
+  opacity: 1;
+}
+
+.empty {
+  text-align: center;
+  color: #888;
+  font-size: 1rem;
+  margin-top: 20px;
+}

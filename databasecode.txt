@@ -1,0 +1,84 @@
+CREATE DATABASE IF NOT EXISTS pinterest_clone CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE pinterest_clone;
+
+-- Users
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+ALTER TABLE users ADD COLUMN interests TEXT NULL;
+ALTER TABLE users
+  ADD UNIQUE KEY (email);
+
+ALTER TABLE users
+  ADD COLUMN interests VARCHAR(255) DEFAULT '' AFTER profile_pic;
+-- ensure profile_pic present, otherwise:
+ALTER TABLE users
+  ADD COLUMN profile_pic VARCHAR(255) DEFAULT 'image/default.png';
+
+
+
+-- Pins
+CREATE TABLE IF NOT EXISTS pins (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT,
+  title VARCHAR(255) NOT NULL,
+  description TEXT,
+  image_url VARCHAR(255) NOT NULL,
+  category VARCHAR(100),
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+::ALTER TABLE pins ADD COLUMN business_url VARCHAR(255) NULL;
+
+
+-- Likes
+CREATE TABLE IF NOT EXISTS likes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  pin_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY uniq_like (user_id, pin_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (pin_id) REFERENCES pins(id) ON DELETE CASCADE
+);
+
+-- Saves
+CREATE TABLE IF NOT EXISTS saves (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  pin_id INT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE KEY uniq_save (user_id, pin_id),
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (pin_id) REFERENCES pins(id) ON DELETE CASCADE
+);
+
+-- Comments
+CREATE TABLE IF NOT EXISTS comments (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  user_id INT NOT NULL,
+  pin_id INT NOT NULL,
+  comment TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,
+  FOREIGN KEY (pin_id) REFERENCES pins(id) ON DELETE CASCADE
+);
+
+-- Seed a demo user
+INSERT IGNORE INTO users (id, email, password) 
+VALUES (1, 'demo@gmial.com', '12345');
+
+-- Seed a few pins
+INSERT INTO pins (user_id, title, description, image_url, category)
+VALUES
+(1,'Food Plate','Delicious meal idea','image/2.jpg','Food'),
+(1,'Sketch','Creative art sketch','image/5.jpg','Art'),
+(1,'Dance Quote','Feel the rhythm','image/6.jpg','Quotes'),
+(1,'Balcony Decor','Cozy balcony vibes','image/10.jpg','HomeDecor'),
+(1,'Outfit','Street fashion inspo','image/25.jpg','Fashion'),
+(1,'Dress','Elegant look','image/26.jpg','Fashion'),
+(1,'DIY Decor','Make it yourself!','image/8.jpg','DIY'),
+(1,'Craft Idea','Simple craft for weekend','image/9.jpg','DIY');

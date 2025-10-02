@@ -1,0 +1,140 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: #111;
+  background: #fff;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 50px;
+  border-bottom: 1px solid #eee;
+}
+
+.navbar .logo {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.navbar nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #111;
+  font-weight: 500;
+}
+
+.navbar nav a.active {
+  border-bottom: 2px solid #111;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.hero .pin {
+  color: #e60023;
+}
+.hero .pin img {
+  height: 48px;      /* keeps logo proportional to text */
+  width: 48px;       /* makes it a square */
+  border-radius: 50%; /* round icon look */
+  margin-right: 6px;
+}
+
+.hero .check {
+  color: #0a9445;  /* green check */
+  font-size: 2.8rem;
+  margin-left: 8px;
+}
+
+/* About Section */
+.about {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: left;
+}
+
+.about h2 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.about p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background: #111;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background: #333;
+}
+
+/* Impact Section */
+.impact {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px;
+  background: #f8f8f8;
+  gap: 30px;
+}
+
+.impact .text {
+  flex: 1;
+}
+
+.impact h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.impact .highlight {
+  color: #0a9445;
+}
+
+.impact p {
+  margin-bottom: 20px;
+}
+
+.impact .image {
+  flex: 1;
+}
+
+.impact img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  background: #111;
+  color: #fff;
+}

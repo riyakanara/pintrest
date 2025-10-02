@@ -1,0 +1,142 @@
+/* Body with background image */
+body {
+  margin: 0;
+  padding: 0;
+  background: url('image/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/* navibar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #e60023;
+}
+
+.navbar .menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .menu li {
+  margin-left: 20px;
+}
+
+.navbar .menu a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar .menu a:hover {
+  color: #e60023;
+}
+
+/* Container split */
+.container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+/* Left side is transparent so body bg is visible */
+.left-section {
+  flex: 2;
+}
+
+/* Right section holds login card */
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+/* Login card */
+.login-card {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0px 6px 25px rgba(0,0,0,0.2);
+  text-align: center;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Inputs */
+.login-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Buttons */
+.login-btn {
+  background-color: #e60023;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.facebook-btn {
+  background-color: #1877f2;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+.google-btn {
+  background-color: #f5f5f5;
+  color: #000;
+  border: none;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* Links */
+.forgot {
+  display: block;
+  text-align: right;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #333;
+}
+.or {
+  margin: 15px 0;
+  font-weight: bold;
+}
+.terms, .signup, .business {
+  font-size: 14px;
+  margin-top: 15px;
+}
